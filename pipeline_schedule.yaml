@@ -1,0 +1,71 @@
+resources:
+  jobs:
+    Pipeline_Job_Rocket_Lab:
+      name: "Pipeline Job - Rocket Lab "
+      email_notifications:
+        on_start:
+          - ohashiramos@gmail.com
+        on_failure:
+          - ohashiramos@gmail.com
+      schedule:
+        quartz_cron_expression: 36 0 13 * * ?
+        timezone_id: America/Recife
+        pause_status: UNPAUSED
+      tasks:
+        - task_key: 01_preparando_ambiente
+          notebook_task:
+            notebook_path: /Workspace/Rocket Lab - Data Engineering (João Guilherme Ohashi
+              Ramos)/01_preparando_ambiente
+            source: WORKSPACE
+          max_retries: 3
+          min_retry_interval_millis: 1200000
+          retry_on_timeout: true
+          disable_auto_optimization: false
+          email_notifications:
+            on_failure:
+              - ohashiramos@gmail.com
+        - task_key: 02_land_to_bronze
+          depends_on:
+            - task_key: 01_preparando_ambiente
+          notebook_task:
+            notebook_path: /Workspace/Rocket Lab - Data Engineering (João Guilherme Ohashi
+              Ramos)/02_land_to_bronze
+            source: WORKSPACE
+          max_retries: 3
+          min_retry_interval_millis: 1200000
+          retry_on_timeout: true
+          disable_auto_optimization: false
+          email_notifications:
+            on_failure:
+              - ohashiramos@gmail.com
+        - task_key: 03_bronze_to_silver
+          depends_on:
+            - task_key: 02_land_to_bronze
+          notebook_task:
+            notebook_path: /Workspace/Rocket Lab - Data Engineering (João Guilherme Ohashi
+              Ramos)/03_bronze_to_silver
+            source: WORKSPACE
+          max_retries: 3
+          min_retry_interval_millis: 1200000
+          retry_on_timeout: true
+          disable_auto_optimization: false
+          email_notifications:
+            on_failure:
+              - ohashiramos@gmail.com
+        - task_key: 04_silver_to_gold
+          depends_on:
+            - task_key: 03_bronze_to_silver
+          notebook_task:
+            notebook_path: /Workspace/Rocket Lab - Data Engineering (João Guilherme Ohashi
+              Ramos)/04_silver_to_gold
+            source: WORKSPACE
+          max_retries: 3
+          min_retry_interval_millis: 1200000
+          retry_on_timeout: true
+          disable_auto_optimization: false
+          email_notifications:
+            on_failure:
+              - ohashiramos@gmail.com
+      queue:
+        enabled: true
+      performance_target: PERFORMANCE_OPTIMIZED
