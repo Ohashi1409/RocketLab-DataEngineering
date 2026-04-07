@@ -35,8 +35,8 @@ Este projeto implementa um pipeline de dados end-to-end que:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    LANDING (Raw Data)                        │
-│                   CSV Files armazenados                       │
+│                    LANDING (Raw Data)                       │
+│                   CSV Files armazenados                     │
 └────────────────────┬────────────────────────────────────────┘
                      │
         ┌────────────▼────────────┐
