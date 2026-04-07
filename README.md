@@ -320,5 +320,3 @@ Armazena os CSVs brutos do e-commerce
 - **Retenção:** Total (histórico completo)
 
 ---
-
-**Criado com ❤️ para Data Engineering**
