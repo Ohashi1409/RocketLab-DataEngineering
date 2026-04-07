@@ -12,10 +12,10 @@ resources:
         timezone_id: America/Recife
         pause_status: UNPAUSED
       tasks:
-        - task_key: 01_preparando_ambiente
+        - task_key: Atividade_preparando_ambiente
           notebook_task:
             notebook_path: /Workspace/Rocket Lab - Data Engineering (João Guilherme Ohashi
-              Ramos)/01_preparando_ambiente
+              Ramos)/Atividade_preparando_ambiente
             source: WORKSPACE
           max_retries: 3
           min_retry_interval_millis: 1200000
@@ -24,12 +24,12 @@ resources:
           email_notifications:
             on_failure:
               - ohashiramos@gmail.com
-        - task_key: 02_land_to_bronze
+        - task_key: Atividade_land_to_bronze
           depends_on:
-            - task_key: 01_preparando_ambiente
+            - task_key: Atividade_preparando_ambiente
           notebook_task:
             notebook_path: /Workspace/Rocket Lab - Data Engineering (João Guilherme Ohashi
-              Ramos)/02_land_to_bronze
+              Ramos)/Atividade_land_to_bronze
             source: WORKSPACE
           max_retries: 3
           min_retry_interval_millis: 1200000
@@ -38,12 +38,12 @@ resources:
           email_notifications:
             on_failure:
               - ohashiramos@gmail.com
-        - task_key: 03_bronze_to_silver
+        - task_key: Atividade_bronze_to_silver
           depends_on:
-            - task_key: 02_land_to_bronze
+            - task_key: Atividade_land_to_bronze
           notebook_task:
             notebook_path: /Workspace/Rocket Lab - Data Engineering (João Guilherme Ohashi
-              Ramos)/03_bronze_to_silver
+              Ramos)/Atividade_bronze_to_silver
             source: WORKSPACE
           max_retries: 3
           min_retry_interval_millis: 1200000
@@ -52,12 +52,12 @@ resources:
           email_notifications:
             on_failure:
               - ohashiramos@gmail.com
-        - task_key: 04_silver_to_gold
+        - task_key: Atividade_silver_to_gold
           depends_on:
-            - task_key: 03_bronze_to_silver
+            - task_key: Atividade_bronze_to_silver
           notebook_task:
             notebook_path: /Workspace/Rocket Lab - Data Engineering (João Guilherme Ohashi
-              Ramos)/04_silver_to_gold
+              Ramos)/Atividade_silver_to_gold
             source: WORKSPACE
           max_retries: 3
           min_retry_interval_millis: 1200000

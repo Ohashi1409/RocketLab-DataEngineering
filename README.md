@@ -123,22 +123,22 @@ Este projeto implementa um pipeline de dados end-to-end que:
 
 | # | Nome | Descrição | Duração Est. |
 |---|------|-----------|--------------|
-| 00 | **00_atividades.ipynb** | Checklist e status do projeto | - |
-| 01 | **01_preparando_ambiente.ipynb** | Setup inicial - Catalog, Schemas, Volumes | 1-2 min |
-| 02 | **02_land_to_bronze.ipynb** | Ingestão de CSVs da landing → Bronze | 5-10 min |
-| 03 | **03_bronze_to_silver.ipynb** | Transformação e validação → Silver | 15-20 min |
-| 04 | **04_silver_to_gold.ipynb** | Análises e insights → Gold | 5-10 min |
+| 00 | **Atividades.ipynb** | Checklist e status do projeto | - |
+| 01 | **Atividade_preparando_ambiente.ipynb** | Setup inicial - Catalog, Schemas, Volumes | 1-2 min |
+| 02 | **Atividade_land_to_bronze.ipynb** | Ingestão de CSVs da landing → Bronze | 5-10 min |
+| 03 | **Atividade_bronze_to_silver.ipynb** | Transformação e validação → Silver | 15-20 min |
+| 04 | **Atividade_silver_to_gold.ipynb** | Análises e insights → Gold | 5-10 min |
 
 ### Fluxo de Execução
 
 ```
-01_preparando_ambiente
+Atividade_preparando_ambiente
         ↓
-02_land_to_bronze
+Atividade_land_to_bronze
         ↓
-03_bronze_to_silver
+Atividade_bronze_to_silver
         ↓
-04_silver_to_gold
+Atividade_silver_to_gold
 ```
 
 ---
@@ -154,7 +154,7 @@ Este projeto implementa um pipeline de dados end-to-end que:
 
 1. **Preparar o Ambiente**
    ```
-   Execute o notebook: 01_preparando_ambiente.ipynb
+  Execute o notebook: Atividade_preparando_ambiente.ipynb
    - Cria catálogo 'medalhao_at'
    - Cria schemas: bronze, silver, gold
    - Cria volume 'landing'
@@ -162,7 +162,7 @@ Este projeto implementa um pipeline de dados end-to-end que:
 
 2. **Ingerir Dados**
    ```
-   Execute o notebook: 02_land_to_bronze.ipynb
+  Execute o notebook: Atividade_land_to_bronze.ipynb
    - Lê CSVs da landing
    - Armazena em tabelas Delta (Bronze)
    - Adiciona timestamp_ingestion
@@ -170,7 +170,7 @@ Este projeto implementa um pipeline de dados end-to-end que:
 
 3. **Transformar e Limpar**
    ```
-   Execute o notebook: 03_bronze_to_silver.ipynb
+  Execute o notebook: Atividade_bronze_to_silver.ipynb
    - Remove duplicatas com Window Functions
    - Valida regras de negócio
    - Preenche valores nulos com estratégias específicas
@@ -179,14 +179,18 @@ Este projeto implementa um pipeline de dados end-to-end que:
 
 4. **Gerar Insights**
    ```
-   Execute o notebook: 04_silver_to_gold.ipynb
+  Execute o notebook: Atividade_silver_to_gold.ipynb
    - Cria tabelas analíticas
    - Calcula métricas de negócio
    - Gera rankings e comparações
    ```
 
 ### Agendamento
-O pipeline está configurado para executar **diariamente às 13h** com as 3 tasks em sequência (Bronze → Silver → Gold).
+O pipeline está configurado para executar **diariamente às 13h** com 4 tasks em sequência:
+1. Atividade_preparando_ambiente
+2. Atividade_land_to_bronze
+3. Atividade_bronze_to_silver
+4. Atividade_silver_to_gold
 
 ---
 
@@ -280,19 +284,17 @@ Agregação: categoria_produto, nome_vendedor, estado_vendedor
 ## 📈 Status do Projeto
 
 ### ✅ Completo
-- [x] Preparação do ambiente (01)
-- [x] Ingestão Bronze (02)
-- [x] Transformação Silver (03)
-- [x] Análises Gold (04)
+- [x] Preparação do ambiente (Atividade_preparando_ambiente)
+- [x] Ingestão Bronze (Atividade_land_to_bronze)
+- [x] Transformação Silver (Atividade_bronze_to_silver)
+- [x] Análises Gold (Atividade_silver_to_gold)
 - [x] Otimização e performance
-- [x] Agendamento diário
+- [x] Agendamento diário com dependências
 - [x] Tratamento de erros e auditoria
-
-### 📝 Próximos Passos (Entregáveis)
-- [ ] Notebooks em formato .ipynb com comentários finais
-- [ ] Arquivo .yaml do Job exportado do Databricks
-- [ ] Screenshot da execução bem-sucedida do Job
-- [ ] Repositório GitHub público
+- [x] Notebooks em formato .ipynb com comentários
+- [x] Arquivo .yaml do Job exportado do Databricks
+- [x] Screenshot da execução bem-sucedida do Job
+- [x] Publicação em repositório GitHub público
 
 ---
 
